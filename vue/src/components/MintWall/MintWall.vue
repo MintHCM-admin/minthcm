@@ -34,6 +34,7 @@
                     <div class="mint-news-time">{{ toRelativeDate(newsItem.publication_date) }}</div>
                 </div>
             </div>
+            <div>text !11111111</div>
             <img
                 v-if="newsItem.photo"
                 class="mint-news-img"

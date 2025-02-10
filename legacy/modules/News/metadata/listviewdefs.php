@@ -96,4 +96,5 @@ $listViewDefs[$module_name] = array(
         'width' => '10%',
         'default' => false,
     ),
+    
 );

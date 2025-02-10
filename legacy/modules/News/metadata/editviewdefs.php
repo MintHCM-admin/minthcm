@@ -84,8 +84,16 @@ $viewdefs[$module_name] = array(
                     'publication_date',
                 ),
                 array(
-                    'photo',
-                    ''
+                    array(
+                        'name' => 'photo',
+                        'label' => 'LBL_PHOTO',
+                        'type' => 'image',         // Указываем, что это поле для изображения
+                        'studio' => 'visible',     // Делаем поле видимым в редакторе
+                        'displayParams' => array(
+                        'size' => '200',      
+                        ),
+                    ),
+                    '',
                 ),
                 array(
                     'content_of_announcement',
@@ -95,7 +103,7 @@ $viewdefs[$module_name] = array(
                     'assigned_user_name',
                 ),
                 array(
-                    'description',
+                    //'description',
                 ),
             ),
         ),

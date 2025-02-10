@@ -476,30 +476,33 @@ mappings:
         type: boolean
       is_group:
         type: boolean
-      address_street:
-        type: text
-        fields:
-          keyword:
-            type: keyword
-            ignore_above: 256
-      address_city:
-        type: text
-        fields:
-          keyword:
-            type: keyword
-            ignore_above: 256
-      address_state:
-        type: text
-        fields:
-          keyword:
-            type: keyword
-            ignore_above: 256
-      address_country:
-        type: text
-        fields:
-          keyword:
-            type: keyword
-            ignore_above: 256
+      address:
+        properties:
+          primary:
+            properties:
+              street:
+                type: text
+                fields:
+                  keyword: { type: keyword, ignore_above: 256 }
+              city:
+                type: text
+                fields:
+                  keyword: { type: keyword, ignore_above: 256 }
+              state:
+                type: text
+                fields:
+                  keyword: { type: keyword, ignore_above: 256 }
+              country:
+                type: text
+                fields:
+                  keyword: { type: keyword, ignore_above: 256 }
+              postalcode:
+                type: text
+                fields:
+                  keyword: { type: keyword, ignore_above: 256 }
+      birthdate:
+        type: date
+        format: 'yyyy-MM-dd HH:mm:ss||yyyy-MM-dd'
       name:
         properties:
           first:
@@ -515,12 +518,6 @@ mappings:
                 type: keyword
                 ignore_above: 256
       title:
-        type: text
-        fields:
-          keyword:
-            type: keyword
-            ignore_above: 256
-      address_postalcode:
         type: text
         fields:
           keyword:
@@ -600,30 +597,33 @@ mappings:
           keyword:
             type: keyword
             ignore_above: 256
-      address_street:
-        type: text
-        fields:
-          keyword:
-            type: keyword
-            ignore_above: 256
-      address_city:
-        type: text
-        fields:
-          keyword:
-            type: keyword
-            ignore_above: 256
-      address_state:
-        type: text
-        fields:
-          keyword:
-            type: keyword
-            ignore_above: 256
-      address_country:
-        type: text
-        fields:
-          keyword:
-            type: keyword
-            ignore_above: 256
+      address:
+        properties:
+          primary:
+            properties:
+              street:
+                type: text
+                fields:
+                  keyword: { type: keyword, ignore_above: 256 }
+              city:
+                type: text
+                fields:
+                  keyword: { type: keyword, ignore_above: 256 }
+              state:
+                type: text
+                fields:
+                  keyword: { type: keyword, ignore_above: 256 }
+              country:
+                type: text
+                fields:
+                  keyword: { type: keyword, ignore_above: 256 }
+              postalcode:
+                type: text
+                fields:
+                  keyword: { type: keyword, ignore_above: 256 }
+      birthdate:
+        type: date
+        format: 'yyyy-MM-dd HH:mm:ss||yyyy-MM-dd'
       meta:
         properties:
           created:
@@ -645,12 +645,6 @@ mappings:
               keyword:
                 type: keyword
                 ignore_above: 256
-      address_postalcode:
-        type: text
-        fields:
-          keyword:
-            type: keyword
-            ignore_above: 256
   AOBH_BusinessHours:
     properties:
       name:
@@ -1204,6 +1198,39 @@ mappings:
               date:
                 type: date
                 format: 'yyyy-MM-dd HH:mm:ss||yyyy-MM-dd'
+  Kudos:
+    properties:
+      name:
+        properties:
+          name:
+            type: text
+            fields:
+              keyword:
+                type: keyword
+                ignore_above: 256
+      meta:
+        properties:
+          created:
+            properties:
+              date:
+                type: date
+                format: 'yyyy-MM-dd HH:mm:ss||yyyy-MM-dd'
+          modified:
+            properties:
+              date:
+                type: date
+                format: 'yyyy-MM-dd HH:mm:ss||yyyy-MM-dd'
+      private:
+        type: boolean
+      security_groups:
+        type: nested
+        properties:
+          id:
+            type: text
+            fields:
+              keyword:
+                type: keyword
+                ignore_above: 256
   OutboundEmailAccounts:
     properties:
       name:
