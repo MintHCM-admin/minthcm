@@ -95,17 +95,28 @@
             
             
              'LBL_PANEL_NEWS' => array(
+                array(
+                    'photo',
+                ),
                 
                 array(
+                    
+                    
                     array(
-                        'name' => 'content_of_announcement',
+                        /*'name' => 'content_of_announcement',
                         'customCode' => '<div class="details-panel">
                                             <div class="news-photo">
                                                 <img src="index.php?entryPoint=download&type=News&id={$fields.id.value}&photo={$fields.photo.value}" 
                                                 alt="News Photo" style="max-width: 100%; display: block; margin-bottom: 10px;" />
                                             </div>
                                             {$fields.content_of_announcement.value}
-                                        </div>',
+                                        </div>',*/
+                                      
+                        
+                        'name' => 'content_of_announcement',
+                        'label' => 'LBL_CONTENT_OF_ANNOUNCEMENT',
+                        'customCode' => '{$fields.content_of_announcement.value}',
+                        
                     ),
                 ),
              ),

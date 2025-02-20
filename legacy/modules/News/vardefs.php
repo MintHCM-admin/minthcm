@@ -224,9 +224,10 @@ $dictionary['News'] = array(
             'reportable' => true,
             'len' => 255,
             'dbType' => 'varchar',
-            'width' => '250',
-            'height' => '250',
+            'width' => '395',
+            'height' => '200',
             'studio' => 'visible',  // Показывать в студии для редактирования
+            'customCode' => '<img src="{$photo}" style="width:395px; height:200px; object-fit:cover; border-radius:50px; display:flex; justify-content: center; align-items: center; " >',
         ),
     ),
     'relationships' => array(

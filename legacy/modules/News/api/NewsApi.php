@@ -89,4 +89,43 @@ class NewsApi
         return $return;
     }
 
+    public function addReaction($args)
+{
+    global $db;
+
+    $news_id = $db->quote($args['news_id']);
+    $user_id = $db->quote($args['user_id']);
+    $reaction_type = $db->quote($args['reaction_type']);
+
+    // Проверяем, есть ли уже такая реакция от пользователя
+    $check_sql = "SELECT id FROM reactions WHERE news_id = {$news_id} AND user_id = {$user_id}";
+    $existing = $db->getOne($check_sql);
+
+    if ($existing) {
+        return ['error' => 'Реакция уже существует'];
+    }
+
+    // Добавляем новую реакцию
+    $insert_sql = "INSERT INTO reactions (id, news_id, user_id, reaction_type, created_at) 
+                   VALUES (UUID(), {$news_id}, {$user_id}, {$reaction_type}, NOW())";
+
+    $db->query($insert_sql);
+
+    return ['success' => true, 'message' => 'Реакция добавлена'];
+}
+
+
+public function getReactions($args)
+{
+    global $db;
+
+    $news_id = $db->quote($args['news_id']);
+    $sql = "SELECT reaction_type, COUNT(*) as count FROM reactions WHERE news_id = {$news_id} GROUP BY reaction_type";
+    $reactions = $db->query($sql)->fetchAll();
+
+    return ['success' => true, 'reactions' => $reactions];
+}
+
+
+
 }
