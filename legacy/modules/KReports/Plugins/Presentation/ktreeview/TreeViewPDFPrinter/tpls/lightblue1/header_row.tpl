@@ -1,1 +1,0 @@
-<tr>{$header_cells}</tr>
